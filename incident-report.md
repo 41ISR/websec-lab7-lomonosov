@@ -1,4 +1,4 @@
-# Security Report
+# Incident Report
 
 ## Найденные уязвимости и исправления
 
