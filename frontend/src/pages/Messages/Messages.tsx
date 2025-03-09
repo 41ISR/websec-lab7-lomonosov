@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useStore from "../../entities/app/app.store"
-
+import DOMPurify from "dompurify"
 const Messages: React.FC = () => {
     const user = useStore((state) => state.user)
     const messages = useStore((state) => state.messages)
@@ -25,7 +25,7 @@ const Messages: React.FC = () => {
                     <div
                         key={index}
                         className="p-1 border-b last:border-none"
-                        dangerouslySetInnerHTML={{ __html: msg.content }}
+                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(msg.content)  }}
                     />
                 ))}
             </div>
